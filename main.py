@@ -23,7 +23,6 @@ def calculate():
     text = request.form['text']
     summary = request.form['summary']
     date = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-    model = tf.keras.models.load_model('model.h5')
     with open('tokenizer.pkl', 'rb') as f:
         tokenizer = pickle.load(f)
 
@@ -33,17 +32,19 @@ def calculate():
         cursor.execute("SELECT * FROM scores WHERE text=? AND summary=?", (text, summary))
         row = cursor.fetchone()
         if row is None:
-            text_seqs = tokenizer.texts_to_sequences([text])
-            text_pad = pad_sequences(text_seqs, maxlen=max_text)
+            with tf.device('/cpu:0'):
+                model = tf.keras.models.load_model('model.h5')
+                text_seqs = tokenizer.texts_to_sequences([text])
+                text_pad = pad_sequences(text_seqs, maxlen=max_text)
 
-            summary_seqs = tokenizer.texts_to_sequences([summary])
-            summary_pad = pad_sequences(summary_seqs, maxlen=max_summary)
+                summary_seqs = tokenizer.texts_to_sequences([summary])
+                summary_pad = pad_sequences(summary_seqs, maxlen=max_summary)
 
-            features = np.array([
-                [len(set(x1)), len(set(x2)), len(set(x1).intersection(x2))] for x1, x2 in zip(text_pad, summary_pad)
-            ])
+                features = np.array([
+                    [len(set(x1)), len(set(x2)), len(set(x1).intersection(x2))] for x1, x2 in zip(text_pad, summary_pad)
+                ])
 
-            score = model.predict([text_pad, summary_pad, features])[0, 0]
+                score = float(model.predict([text_pad, summary_pad, features])[0, 0])
 
             cursor.execute("INSERT INTO scores (text, summary, date, score) VALUES (?, ?, ?, ?)", (text, summary, date, score))
             conn.commit()
