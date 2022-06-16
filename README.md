@@ -24,6 +24,19 @@ Mk:SA checker is quality checker for MKSA
 ----------
 ![image](https://raw.githubusercontent.com/ferytell/Puk6/master/assets/er.PNG)
 
+
+How to replicate
+
+first you must crate databe, in our case we use sqlite3 the database named bangkit with articles table, articles table have 5 column:
+
+text	summary	date	score
+----------	-------	----	--------
+CREATE TABLE scores (
+	text TEXT NOT NULL,
+	summary TEXT NOT NULL,
+	date d1 INT,
+	score TEXT NOT NULL UNIQUE
+);
 ## screenshoot Front End
 
 <!-- Linked In -->
