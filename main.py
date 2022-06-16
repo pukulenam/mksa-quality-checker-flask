@@ -81,4 +81,4 @@ if __name__ == '__main__':
         cursor.execute("CREATE TABLE IF NOT EXISTS scores (text TEXT, summary TEXT, date TEXT, score REAL)")
         conn.commit()
         
-    app.run()
+    app.run(host='127.0.0.1', port=8080, debug=True)
