@@ -14,27 +14,31 @@
 	</head>
 	<body style="background-color: #ffffff">
 		{% include 'header.html' %}
-		<div class="table-responsive px-4">
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Date</th>
-						<th scope="col">Isi</th>
-						<th scope="col">MKSA</th>
-						<th scope="col">Score</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for row in rows %}
-					<tr>
-						<td width="180px">{{ row[2] }}</td>
-						<td>{{ row[0] }}</td>
-						<td>{{ row[1] }}</td>
-						<td>{{ row[3] }}</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+		<form action="/delete" method="POST">
+			<div class="table-responsive px-2">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Date</th>
+							<th scope="col">Isi</th>
+							<th scope="col">MKSA</th>
+							<th scope="col">Score</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for row in rows %}
+						<tr>
+							<td width="14%">{{ row[2] }}</td>
+							<td>{{ row[0] }}</td>
+							<td>{{ row[1] }}</td>
+							<td>{{ row[3] }}</td>
+							<td><input type="submit" class="btn btn-danger" name="{{ row[2] }}" id="{{ row[2] }}" value="Delete"></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+		</form>
 		</div>
 
 		<script

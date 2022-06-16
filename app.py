@@ -2,7 +2,7 @@ import os
 import sqlite3
 import datetime
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -37,6 +37,16 @@ def scores():
         rows = cursor.fetchall()
 
     return render_template('scores.html', rows=rows)
+
+@app.route('/delete', methods=["POST"])
+def delete():
+    date = list(request.form.keys())[0]
+    with sqlite3.connect('db.sqlite3') as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM scores WHERE date=?", (date,))
+        conn.commit()
+
+    return redirect('/scores')
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite3'):
