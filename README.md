@@ -29,9 +29,22 @@ MKSA Quality Checker is built by Siamese LSTM to detect semantic similarity betw
 
 How to replicate
 
-- First, clone this repository
+assuming you already have Google Cloud Platform Project with linked billing account.
+- Go into Navigation menu
+- Click Compute Engine 
+-  Click VM instances then create New Instances
+-  we use amchine with 
+> n1-standard-1
+> 10 GB disk space
+> Ubuntu 18.04.6 LTS OS
+- after created, connect into ssh
+- clone this repository
 - Install all the dependencies using `pip install -r requirements.txt`
 - run main.py using `python3 main.py`
+
+
+![image](https://imgur.com/543500a9-9d39-4751-a9b7-9c800270b76d)
+
 
 ## Screenshot of our website
 
