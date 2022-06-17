@@ -1,5 +1,3 @@
-# mksa-quality-checker-flask
-
 <p align="center">
 <h1 align="center">MKSA Quality Checker</h1>
 <h3 align="center">Our Machine Learning Model will calculate how good your MKSA is </h3>
@@ -14,7 +12,7 @@
 | Dede Yusuf P. Kuntaritas | M2004F0214 | Machine learning | Machine Learning Developer | [LinkedIn - Dede] or [Github - Dede] |
 | Dava Aditya Jauhar | M7004F0423 | Machine Learning | Machine Learning Developer | [LinkedIn - Dava] or [Github - Dava] |
 | Ghimnastiar Al Abiyyuna | C2004F0425 | Cloud Computing | DevOps| [LinkedIn - Agim] or [Github - Agim] |
-| Feri Ginanjar | C7013F1361 | Cloud Computing | DevOps | [LinkedIn - Tri] or [Github - Tri] |
+| Feri Ginanjar | C7013F1361 | Cloud Computing | DevOps | [LinkedIn - Feri] or [Github - Feri] |
 
 # About MKSA Quality Checker
 
@@ -22,26 +20,28 @@ MKSA Quality Checker is built by Siamese LSTM to detect semantic similarity betw
 
 ## main Features
 
+- Calculate our mksa score
+- View and delete our previous mksa score
+
 ---
 
 ![image](https://raw.githubusercontent.com/ferytell/Puk6/master/assets/er.PNG)
 
 How to replicate
 
-first you must crate databe, in our case we use sqlite3 the database named bangkit with articles table, articles table have 5 column:
+- First, clone this repository
+- Install all the dependencies using `pip install -r requirements.txt`
+- run main.py using `python3 main.py`
 
-text summary date score
+## Screenshot of our website
 
----
+### Homepage
 
-CREATE TABLE scores (
-text TEXT NOT NULL,
-summary TEXT NOT NULL,
-date d1 INT,
-score TEXT NOT NULL UNIQUE
-);
+![mksa](https://drive.google.com/uc?export=view&id=1kOSLxvUha1F5bDmfUuXTNXrlKxPPoud6)
 
-## screenshoot Front End
+### History
+
+![score](https://drive.google.com/uc?export=view&id=19ynx0spD_DWj3mjhLq4Rc1J5bYLM1zfN)
 
 <!-- Linked In -->
 
