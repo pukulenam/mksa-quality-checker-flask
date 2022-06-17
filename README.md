@@ -43,7 +43,8 @@ assuming you already have Google Cloud Platform Project with linked billing acco
 - run main.py using `python3 main.py`
 
 
-![image](https://i.imgur.com/tJIEju1.png)
+![image](https://i.imgur.com/XSlmYUh.png)
+
 
 
 ## Screenshot of our website
