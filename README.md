@@ -33,10 +33,10 @@ assuming you already have Google Cloud Platform Project with linked billing acco
 - Go into Navigation menu
 - Click Compute Engine 
 -  Click VM instances then create New Instances
--  we use amchine with 
+-  we use machine with 
 > n1-standard-1
-> 10 GB disk space
-> Ubuntu 18.04.6 LTS OS
+> /10 GB disk space
+> /Ubuntu 18.04.6 LTS OS
 - after created, connect into ssh
 - clone this repository
 - Install all the dependencies using `pip install -r requirements.txt`
